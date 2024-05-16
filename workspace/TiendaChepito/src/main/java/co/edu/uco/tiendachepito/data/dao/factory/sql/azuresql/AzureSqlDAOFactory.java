@@ -1,65 +1,95 @@
-package co.edu.uco.tiendachepito.data.dao.factory.sql.azuresql;
+package co.edu.uco.teaskpeak.data.dao.factory.sql.postgressql;
+
+import co.edu.uco.teaskpeak.data.dao.UsuarioDAO;
+import co.edu.uco.teaskpeak.data.dao.factory.DAOFactory;
+import co.edu.uco.teaskpeak.data.dao.sql.postgressql.UsuarioPostgresSqlDAO;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 
-import co.edu.uco.tiendachepito.data.dao.CiudadDAO;
-import co.edu.uco.tiendachepito.data.dao.DepartamentoDAO;
-import co.edu.uco.tiendachepito.data.dao.PaisDAO;
-import co.edu.uco.tiendachepito.data.dao.factory.DAOFactory;
-import co.edu.uco.tiendachepito.data.dao.sql.azuresql.CiudadAzureSqlDAO;
-import co.edu.uco.tiendachepito.data.dao.sql.azuresql.DepartamentoAzureSqlDAO;
-import co.edu.uco.tiendachepito.data.dao.sql.azuresql.PaisAzureSqlDAO;
 
-public final class AzureSqlDAOFactory extends DAOFactory {
-	
+import java.sql.SQLException;
+public class PostgresSqlDAOFactory extends DAOFactory {
 	private Connection connection;
-	
-	public AzureSqlDAOFactory () {
+
+	public PostgresSqlDAOFactory() {
 		obtenerConexion();
 	}
 
 	@Override
 	protected void obtenerConexion() {
-		// TODO Auto-generated method stub
-		connection = null;
+		try {
+			String url = "jdbc:postgresql://postgres:EQunXTxwWasmLkkZDnvVcjtdHdofpaNJ@roundhouse.proxy.rlwy.net:58129/railway";
+			String user = "postgres";
+			String password = "EQunXTxwWasmLkkZDnvVcjtdHdofpaNJ";
+			connection = DriverManager.getConnection(url,user,password);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void iniciarTransaccion() {
-		// TODO Auto-generated method stub
-		
+		try {
+			if (connection != null) {
+				connection.setAutoCommit(false);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void confirmarTransaccion() {
-		// TODO Auto-generated method stub
-		
+		try {
+			if (connection != null) {
+				connection.commit();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void cancelarTransaccion() {
-		// TODO Auto-generated method stub
-		
+		try {
+			if (connection != null) {
+				connection.rollback();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void cerrarConexion() {
-		// TODO Auto-generated method stub
-		
+		try {
+			if (connection != null) {
+				connection.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public PaisDAO getPaisDAO() {
-		return new PaisAzureSqlDAO(connection);
-	}
-
-	@Override
-	public DepartamentoDAO getDepartamentoDAO() {
-		return new DepartamentoAzureSqlDAO(connection);
-	}
-
-	@Override
-	public CiudadDAO getCiudadDAO() {
-		return new CiudadAzureSqlDAO(connection);
+	public UsuarioDAO getUsuarioDAO() {
+		return new UsuarioPostgresSqlDAO(connection);
 	}
 }
+
+//
+//    @Override
+//    public PaisDAO getPaisDAO() {
+//        return new PaisAzureSqlDAO(connection);
+//    }
+//
+//    @Override
+//    public DepartamentoAzureSqlDAO getDepartamentoDAO() {
+//        return new DepartamentoAzureSqlDAO(connection);
+//    }
+//
+//    @Override
+//    public CiudadDAO getCiudadDAO() {
+//        return new CiudadAzureSqlDAO(connection);
+//    }
