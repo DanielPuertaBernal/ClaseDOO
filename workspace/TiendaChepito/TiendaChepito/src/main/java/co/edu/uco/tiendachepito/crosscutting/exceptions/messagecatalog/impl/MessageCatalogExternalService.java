@@ -17,8 +17,8 @@ public final class MessageCatalogExternalService implements MessageCatalog {
 	@Override
 	public final void inicializar() {
 		mensajes.clear();
-		mensajes.put(CodigoMensaje.M00007.getIdentificador(),
-				new Mensaje(CodigoMensaje.M00007, "La transacción se ha completado de forma satisfactoria..."));
+		mensajes.put(CodigoMensaje.M00023.getIdentificador(),
+				new Mensaje(CodigoMensaje.M00023, "La transacción se ha completado de forma satisfactoria..."));
 	}
 
 	@Override

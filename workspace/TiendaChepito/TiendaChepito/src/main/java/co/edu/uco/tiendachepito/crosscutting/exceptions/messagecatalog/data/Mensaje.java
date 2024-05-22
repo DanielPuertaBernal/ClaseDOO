@@ -2,7 +2,7 @@ package co.edu.uco.tiendachepito.crosscutting.exceptions.messagecatalog.data;
 
 public final class Mensaje {
 
-	private Mensaje ;
+	private CodigoMensaje codigo;
 	private String contenido;
 
 	public Mensaje(final CodigoMensaje codigo, final String contenido) {

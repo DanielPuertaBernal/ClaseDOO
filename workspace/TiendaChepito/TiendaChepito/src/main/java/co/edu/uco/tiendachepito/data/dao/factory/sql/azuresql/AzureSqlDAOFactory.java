@@ -20,36 +20,32 @@ public final class AzureSqlDAOFactory extends DAOFactory {
 
 	@Override
 	protected void obtenerConexion() {
-		final String connectionUrl = "jdbc:sqlserver://<server>:<port>;databaseName=AdventureWorks;user=<user>;password=<password>";
-		try {
-			connection = driverManager.getConnection(connectionUrl);
-	}
-		//Continuar
-
+		// TODO Auto-generated method stub
+		connection = null;
 
 	}
 
 	@Override
 	public void iniciarTransaccion() {
-		SQLHelper.initTransaction(connection);
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void confirmarTransaccion() {
-		SQLHelper.commit(connection);
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void cancelarTransaccion() {
-		SQLHelper.rollback(connection);
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void cerrarConexion() {
-		SQLHelper.close(connection);
+		// TODO Auto-generated method stub
 
 	}
 

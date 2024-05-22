@@ -16,19 +16,21 @@ public enum CodigoMensaje {
 	M00009(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00009", true),
 	M00010(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00010", true),
 	M00011(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00011", true),
-	M00012TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00012", true),
+	M00012(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00012", true),
 	M00013(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00013", true),
-	M00014TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00014", true),
+	M00014(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00014", true),
 	M00015(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00015", true),
-	M00016TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00016", true),
+	M00016(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00016", true),
 	M00017(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00017", true),
-	M00018TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00018", true),
+	M00018(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00018", true),
 	M00019(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00019", true),
-	M00020TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00020", true),
+	M00020(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00020", true),
 	M00021(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00021", true),
-	M00022TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00022", true),
-	M00023(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00023", true);
-
+	M00022(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00022", true),
+	M00023(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00023", false),
+	M00024(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00024", false),
+	M00025(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00025", false),
+	M00026(TipoMensaje.TECNICO, CategoriaMensaje.EXITO, "00026", false);
 
 	private TipoMensaje tipo;
 	private CategoriaMensaje categoria;

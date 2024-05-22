@@ -59,28 +59,28 @@ public final class SQLHelper {
 			if(!isOpen(connection)) {
 				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00002);
 				var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00012);
-
+				
 				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario);
 			}
+			
 			if(connection.getAutoCommit()) {
 				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00002);
 				var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00013);
-
-				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario);
-			}
+			
 			connection.commit();
 		} catch (final CrosscuttingTiendaChepitoException exception) {
 			throw exception;
-		} catch(SQLException exception) {
-			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
-			var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00014);
-
-			throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
-		} catch(Exception exception) {
-			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
-			var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00015);
-
-			throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
+			} catch(SQLException exception) {
+				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
+				var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00014);
+				
+				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
+			} catch(Exception exception) {
+				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
+				var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00015);
+				
+				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
+			}
 		}
 	}
 	
@@ -88,52 +88,54 @@ public final class SQLHelper {
 		try {
 			if(!isOpen(connection)) {
 				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00002);
-				var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00016);
-
+				var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00012);
+				
 				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario);
 			}
+			
 			if(connection.getAutoCommit()) {
 				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00002);
-				var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00017);
-
-				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario);
-			}
+				var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00013);
+			
 			connection.rollback();
 		} catch (final CrosscuttingTiendaChepitoException exception) {
 			throw exception;
-		} catch(SQLException exception) {
-			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
-			var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00018);
-
-			throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
-		} catch(Exception exception) {
-			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
-			var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00019);
-
-			throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
+			} catch(SQLException exception) {
+				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
+				var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00014);
+				
+				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
+			} catch(Exception exception) {
+				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
+				var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00015);
+				
+				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
+			}
 		}
 	}
 	
 	public static final void initTransaction(final Connection connection) {
 		try {
-			if (!isOpen(connection)) {
+			if(!isOpen(connection)) {
 				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00002);
-				var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00020);
-
+				var mensajeTecnico = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje, M00012);
+				
 				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario);
-			}
+			
 			connection.setAutoCommit(false);
 		} catch (final CrosscuttingTiendaChepitoException exception) {
 			throw exception;
-		} catch (SQLException exception) {
-			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
-			var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00021);
-
-			throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
-		} catch (Exception exception) {
-			var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
-			var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00022);
-
-			throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
+			} catch(SQLException exception) {
+				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
+				var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00014);
+				
+				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
+			} catch(Exception exception) {
+				var mensajeUsuario = MessageCatalogStrategy.getContenidoMensaje(CodigoMensaje.M00002);
+				var mensajeTecnico = MessageCatalogStrategy.getConetinooMensaje(CodigoMensaje.M00015);
+				
+				throw new CrosscuttingTiendaChepitoException(mensajeTecnico, mensajeUsuario, exception);
+			}
 		}
 	}
+}

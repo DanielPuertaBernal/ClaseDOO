@@ -34,34 +34,36 @@ public final class MessageCatalogBase implements MessageCatalog {
 				"Se ha presentado un problema INESPERADO tratando de validar si la conexión SQL con la fuente de información deseada estaba cerrada..."));
 		mensajes.put(CodigoMensaje.M00009.getIdentificador(), new Mensaje(CodigoMensaje.M00009,
 				"Se ha intentado reazlizar el cierre de una conexión SQL que ya estaba cerrada..."));
-		mensajes.put(CodigoMensaje.M000010.getIdentificador(), new Mensaje(CodigoMensaje.M000010,
-				"se ha presentado problema tratando de .."));
-		mensajes.put(CodigoMensaje.M000011.getIdentificador(), new Mensaje(CodigoMensaje.M000011,
-				"El identificador del mensaje \"${1}\" que se intentó obtener, no está en el catálogo de mensajes externo..."));
-		mensajes.put(CodigoMensaje.M000012.getIdentificador(), new Mensaje(CodigoMensaje.M000012,
-				"Se ha presentado un problema tratando de validar si la conexión SQL con la fuente de información deseada estaba cerrada..."));
-		mensajes.put(CodigoMensaje.M000013.getIdentificador(), new Mensaje(CodigoMensaje.M000013,
-				"Se ha presentado un problema INESPERADO tratando de validar si la conexión SQL con la fuente de información deseada estaba cerrada..."));
-		mensajes.put(CodigoMensaje.M000014.getIdentificador(), new Mensaje(CodigoMensaje.M000014,
+		mensajes.put(CodigoMensaje.M00010.getIdentificador(), new Mensaje(CodigoMensaje.M00010,
+				"Se ha presentado un problema tratando de cerrar conexión SQL que ya estaba cerrada..."));
+		mensajes.put(CodigoMensaje.M00011.getIdentificador(), new Mensaje(CodigoMensaje.M00011,
 				"Se ha intentado reazlizar el cierre de una conexión SQL que ya estaba cerrada..."));
-		mensajes.put(CodigoMensaje.M000015.getIdentificador(), new Mensaje(CodigoMensaje.M000015,
-				"se ha presentado un problema INesperado..."));
-		mensajes.put(CodigoMensaje.M000016.getIdentificador(), new Mensaje(CodigoMensaje.M000016,
-				"El identificador del mensaje \"${1}\" que se intentó obtener, no está en el catálogo de mensajes externo..."));
-		mensajes.put(CodigoMensaje.M000017.getIdentificador(), new Mensaje(CodigoMensaje.M000017,
-				"Se ha presentado un problema tratando de validar si la conexión SQL con la fuente de información deseada estaba cerrada..."));
-		mensajes.put(CodigoMensaje.M000018.getIdentificador(), new Mensaje(CodigoMensaje.M000018,
-				"Se ha presentado un problema INESPERADO tratando de validar si la conexión SQL con la fuente de información deseada estaba cerrada..."));
-		mensajes.put(CodigoMensaje.M000019.getIdentificador(), new Mensaje(CodigoMensaje.M000019,
-				"Se ha intentado reazlizar el cierre de una conexión SQL que ya estaba cerrada..."));
-		mensajes.put(CodigoMensaje.M000020.getIdentificador(), new Mensaje(CodigoMensaje.M000020,
-				"se ha presentado un problema INesperado..."));
-		mensajes.put(CodigoMensaje.M000021.getIdentificador(), new Mensaje(CodigoMensaje.M000021,
-				"El identificador del mensaje \"${1}\" que se intentó obtener, no está en el catálogo de mensajes externo..."));
-		mensajes.put(CodigoMensaje.M000022.getIdentificador(), new Mensaje(CodigoMensaje.M000022,
-				"Se ha presentado un problema tratando de validar si la conexión SQL con la fuente de información deseada estaba cerrada..."));
-		mensajes.put(CodigoMensaje.M000023.getIdentificador(), new Mensaje(CodigoMensaje.M000023,
-				"Se ha presentado un problema INESPERADO tratando de validar si la conexión SQL con la fuente de información deseada estaba cerrada..."));
+		mensajes.put(CodigoMensaje.M00012.getIdentificador(), new Mensaje(CodigoMensaje.M00012,
+				"Se ha intentado confirmar una transacción con una conexión SQL cerrada..."));
+		mensajes.put(CodigoMensaje.M00013.getIdentificador(), new Mensaje(CodigoMensaje.M00013,
+				"Se ha intentado confirmar una transacción cuando el autocommit de la conexión con la base de datos estaba activado..."));
+		mensajes.put(CodigoMensaje.M00014.getIdentificador(), new Mensaje(CodigoMensaje.M00014,
+				"Se ha presentado un problema tratando de confirmar una transacción SQL con la fuente de datos deseada..."));
+		mensajes.put(CodigoMensaje.M00015.getIdentificador(), new Mensaje(CodigoMensaje.M00015,
+				"Se ha presentado un problema INESPERADO tratando de confirmar una transacción SQL con la fuente de datos deseada..."));
+		mensajes.put(CodigoMensaje.M00016.getIdentificador(), new Mensaje(CodigoMensaje.M00016,
+				"Se ha intentado cancelar una transacción con una conexión SQL cerrada..."));
+		mensajes.put(CodigoMensaje.M00017.getIdentificador(), new Mensaje(CodigoMensaje.M00017,
+				"Se ha intentado ..."));
+		mensajes.put(CodigoMensaje.M00018.getIdentificador(), new Mensaje(CodigoMensaje.M00018,
+				"..."));
+		mensajes.put(CodigoMensaje.M00019.getIdentificador(), new Mensaje(CodigoMensaje.M00019,
+				"..."));
+		mensajes.put(CodigoMensaje.M00020.getIdentificador(), new Mensaje(CodigoMensaje.M00020,
+				"..."));
+		mensajes.put(CodigoMensaje.M00021.getIdentificador(), new Mensaje(CodigoMensaje.M00021,
+				"..."));
+		mensajes.put(CodigoMensaje.M00022.getIdentificador(), new Mensaje(CodigoMensaje.M00022,
+				"..."));
+		mensajes.put(CodigoMensaje.M00023.getIdentificador(), new Mensaje(CodigoMensaje.M00023,
+				"..."));
+	
+	}
 
 	@Override
 	public final String obtenerContenidoMensaje(final CodigoMensaje codigo, final String... parametros) {

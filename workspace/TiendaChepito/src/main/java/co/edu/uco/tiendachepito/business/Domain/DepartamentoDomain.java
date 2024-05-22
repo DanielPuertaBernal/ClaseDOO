@@ -1,40 +1,54 @@
-public  class departamentoDomain {
-    private int id;
-    private String nombre;
-    private
+package co.edu.uco.tiendachepito.business.domain;
 
-    private DepartamentoDomain(final int id, final String nombre) {
-        setId(id);
-        setNombre(nombre);
-        setPais(pais);
-    }
-    private departamentoDomain() {
-        setNombre(TextHelper.EMPTY);
-        setPais(PaisDomani.crear());
-    }
-    public static departamentoDomain crear(final int id, final String nombre, final PaisDomani pais) {
-        return new departamentoDomain(id, nombre, pais);
-    }
-    public static final departamentoDomain crear() {
-        return new departamentoDomain();
-    }
-    private final void setId(final int id) {
-        this.id = id;
-    }
-    private final void setNombre(final String nombre) {
-        this.nombre = TextHelper.applyTim(nombre);
-    }
-    private final void setPais(final PaisDomani pais) {
-        this.pais = pais;
-    }
-    public final int getId() {
-        return id;
-    }
-    public final String getNombre() {
-        return nombre;
-    }
-    public final PaisDomani getPais() {
-        return pais;
-    }
+import co.edu.uco.tiendachepito.crosscutting.helpers.ObjectHelper;
+import co.edu.uco.tiendachepito.crosscutting.helpers.TextHelper;
 
+public class DepartamentoDomain {
+
+	private int id;
+	private String nombre;
+	private PaisDomain pais;
+	
+	private DepartamentoDomain(final int id, final String nombre, final PaisDomain pais) {
+		setId(id);
+		setNombre(nombre);
+		setPais(pais);
+	}
+	
+	private DepartamentoDomain() {
+		setNombre(TextHelper.EMPTY);
+		setPais(PaisDomain.crear());
+	}
+	
+	public static final DepartamentoDomain crear(final int id, final String nombre, final PaisDomain pais) {
+		return new DepartamentoDomain(id, nombre, pais);
+	}
+	
+	public static final DepartamentoDomain crear() {
+		return new DepartamentoDomain();
+	}
+	
+	private final void setId(int id) {
+		this.id = id;
+	}
+	
+	private final void setNombre(String nombre) {
+		this nombre = TextHelper.applyTrim(nombre);
+	}
+	
+	private final void setPais(final PaisDomain pais) {
+		this.pais = ObjectHelper
+	}
+	
+	public final int getId() {
+		return id;
+	}
+	
+	public final String getNombre() {
+		return nombre;
+	}
+	
+	public final PaisDomain getPais() {
+		return pais;
+	}
 }

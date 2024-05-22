@@ -1,95 +1,69 @@
-package co.edu.uco.teaskpeak.data.dao.factory.sql.postgressql;
-
-import co.edu.uco.teaskpeak.data.dao.UsuarioDAO;
-import co.edu.uco.teaskpeak.data.dao.factory.DAOFactory;
-import co.edu.uco.teaskpeak.data.dao.sql.postgressql.UsuarioPostgresSqlDAO;
+package co.edu.uco.tiendachepito.data.dao.factory.sql.azuresql;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 
+import co.edu.uco.tiendachepito.crosscutting.helpers.SQLHelper;
+import co.edu.uco.tiendachepito.data.dao.CiudadDAO;
+import co.edu.uco.tiendachepito.data.dao.DepartamentoDAO;
+import co.edu.uco.tiendachepito.data.dao.PaisDAO;
+import co.edu.uco.tiendachepito.data.dao.factory.DAOFactory;
+import co.edu.uco.tiendachepito.data.dao.sql.azuresql.CiudadAzureSqlDAO;
+import co.edu.uco.tiendachepito.data.dao.sql.azuresql.DepartamentoAzureSqlDAO;
+import co.edu.uco.tiendachepito.data.dao.sql.azuresql.PaisAzureSqlDAO;
 
-import java.sql.SQLException;
-public class PostgresSqlDAOFactory extends DAOFactory {
+public final class AzureSqlDAOFactory extends DAOFactory {
+	
 	private Connection connection;
-
-	public PostgresSqlDAOFactory() {
+	
+	public AzureSqlDAOFactory () {
 		obtenerConexion();
 	}
 
 	@Override
 	protected void obtenerConexion() {
+		final String connectionUrl = "jdbc:sqlserver://<server>:<port>;databaseName=AdventureWorks;user=<user>;password=<password>";
 		try {
-			String url = "jdbc:postgresql://postgres:EQunXTxwWasmLkkZDnvVcjtdHdofpaNJ@roundhouse.proxy.rlwy.net:58129/railway";
-			String user = "postgres";
-			String password = "EQunXTxwWasmLkkZDnvVcjtdHdofpaNJ";
-			connection = DriverManager.getConnection(url,user,password);
-		} catch (SQLException e) {
+			connection = DriverManager.getConnection(connectionUrl);
+		} catch (final SQLException exception) {
+			//TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} catch (final Exception exception) {
+			//TODO Auto-generated catch block
+			e.printStackTrace();
 	}
 
 	@Override
 	public void iniciarTransaccion() {
-		try {
-			if (connection != null) {
-				connection.setAutoCommit(false);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		SQLHelper.initTransaction(connection);
 	}
 
 	@Override
 	public void confirmarTransaccion() {
-		try {
-			if (connection != null) {
-				connection.commit();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		SQLHelper.commit(connection);
 	}
 
 	@Override
 	public void cancelarTransaccion() {
-		try {
-			if (connection != null) {
-				connection.rollback();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		SQLHelper.rollback(connection);
 	}
 
 	@Override
 	public void cerrarConexion() {
-		try {
-			if (connection != null) {
-				connection.close();
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		SQLHelper.close(connection);
 	}
 
 	@Override
-	public UsuarioDAO getUsuarioDAO() {
-		return new UsuarioPostgresSqlDAO(connection);
+	public PaisDAO getPaisDAO() {
+		return new PaisAzureSqlDAO(connection);
+	}
+
+	@Override
+	public DepartamentoDAO getDepartamentoDAO() {
+		return new DepartamentoAzureSqlDAO(connection);
+	}
+
+	@Override
+	public CiudadDAO getCiudadDAO() {
+		return new CiudadAzureSqlDAO(connection);
 	}
 }
-
-//
-//    @Override
-//    public PaisDAO getPaisDAO() {
-//        return new PaisAzureSqlDAO(connection);
-//    }
-//
-//    @Override
-//    public DepartamentoAzureSqlDAO getDepartamentoDAO() {
-//        return new DepartamentoAzureSqlDAO(connection);
-//    }
-//
-//    @Override
-//    public CiudadDAO getCiudadDAO() {
-//        return new CiudadAzureSqlDAO(connection);
-//    }
